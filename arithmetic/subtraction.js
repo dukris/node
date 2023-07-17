@@ -64,5 +64,3 @@ export class Subtraction {
     }
 
 }
-
-console.log(new Subtraction("100", "299").calculate())
