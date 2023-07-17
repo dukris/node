@@ -1,5 +1,5 @@
 {
-  "name": "node",
+  "name": "arithmetic",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -10,14 +10,6 @@
     "transform": {
       "^.+\\.jsx?$": "babel-jest"
     }
-  },
-  "dependencies": {
-    "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
-    "express": "~4.16.1",
-    "http-errors": "~1.6.3",
-    "morgan": "~1.9.1",
-    "pug": "2.0.0-beta11"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.22.9",
