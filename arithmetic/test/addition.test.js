@@ -5,6 +5,10 @@ describe('Addition', () => {
         expect(new Addition("0", "0").calculate())
             .toBe("0");
     });
+    test('99 + 330 = 429', () => {
+        expect(new Addition("99", "330").calculate())
+            .toBe("429");
+    });
     test('1 + 2 = 3', () => {
         expect(new Addition("1", "2").calculate())
             .toBe("3");

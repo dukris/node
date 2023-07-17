@@ -13,6 +13,10 @@ describe('Multiplication', () => {
         expect(new Multiplication("2222", "100").calculate())
             .toBe("222200");
     });
+    test('33 * 13 = 429', () => {
+        expect(new Multiplication("33", "13").calculate())
+            .toBe("429");
+    });
     test('5000000 * 320000098 = 4900000', () => {
         expect(new Multiplication("5000000", "320000098").calculate())
             .toBe("1600000490000000");
