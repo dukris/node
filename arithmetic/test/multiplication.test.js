@@ -1,4 +1,4 @@
-import {Multiplication} from "../multiplication.js";
+import {Multiplication} from "../src/multiplication.js";
 
 describe('Multiplication', () => {
     test('0 * 15 = 0', () => {
