@@ -17,6 +17,14 @@ describe('Division', () => {
         expect(new Division("500000000", "320000098").calculate())
             .toBe("1");
     });
+    test('2568 / 22 = 116', () => {
+        expect(new Division("2568", "22").calculate())
+            .toBe("116");
+    });
+    test('256800000 / 1 = 256800000', () => {
+        expect(new Division("256800000", "1").calculate())
+            .toBe("256800000");
+    });
     test('Wrong parameters', () => {
         expect(() => new Division("egrer", "858473").calculate())
             .toThrow(TypeError);
