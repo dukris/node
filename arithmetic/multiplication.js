@@ -44,7 +44,7 @@ export class Multiplication {
             answer.push(sum);
         }
         return answer.reduce((a, b) => new Addition(a, b).calculate(), "0")
-            .replace(/^0+(?=\d)/, '');;
+            .replace(/^0+(?=\d)/, '');
     }
 
 }
