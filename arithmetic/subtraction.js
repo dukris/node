@@ -57,9 +57,6 @@ export class Subtraction {
                 answer[i] = first - second;
             }
         }
-        // answer = answer.reverse().join("") === "0"
-        //     ? answer.reverse().join("")
-        //     : answer.reverse().join("").replace(/^0+/, '');
         return negative ? "-" + answer.reverse().join("") : answer.reverse().join("");
     }
 
