@@ -1,4 +1,4 @@
-import {Addition} from "./addition.js";
+import {Addition} from "../addition.js";
 
 describe('Addition', () => {
     test('0 + 0 = 0', () => {

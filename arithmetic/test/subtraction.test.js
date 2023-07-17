@@ -1,4 +1,4 @@
-import {Subtraction} from "./subtraction.js";
+import {Subtraction} from "../subtraction.js";
 
 describe('Subtraction', () => {
     test('0 - 0 = 0', () => {
