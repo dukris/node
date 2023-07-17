@@ -1,6 +1,8 @@
 import {Validator} from "./validator.js";
 import {Multiplication} from "./multiplication.js";
 import {Comparator} from "./comparator.js";
+import {Addition} from "./addition.js";
+import {Subtraction} from "./subtraction.js";
 
 /**
  * Division.
@@ -26,28 +28,19 @@ export class Division {
     calculate = () => {
         new Validator(this.a, this.b).check();
         let comparator = new Comparator();
-        // this.a = [...this.a];
-        // this.b = [...this.b];
-        // let carry = 0;
-        // let answer = "";
-        // for (let i = 0; i < this.a.length; i++) {
-        //     answer = answer + ~~((+this.a[i] + (carry * 10)) / +this.b);
-        //     carry = (+this.a[i] + (carry * 10)) % +this.b;
-        // }
-        // return answer.replace(/^0+(?=\d)/, '');
-        let j = 1;
-        let value = new Multiplication(this.b, "1").calculate();
+        if (comparator.compare(this.b, "1") === 0) {
+            return this.a;
+        }
+        let i = "1";
+        let value = new Multiplication(this.b, i).calculate();
         while (comparator.compare(value, this.a) === -1) {
-            j++;
-            value = new Multiplication(this.b, j.toString()).calculate();
+            i = new Addition(i, "1").calculate();
+            value = new Multiplication(this.b, i).calculate();
         }
-        if(comparator.compare(value, this.a) === 1){
-            j--;
+        if (comparator.compare(value, this.a) === 1) {
+            i = new Subtraction(i, "1").calculate();
         }
-        return j.toString();
-        // return answer.replace(/^0+(?=\d)/, '');
+        return i;
     }
 
 }
-
-console.log(new Division("500", "1").calculate())
