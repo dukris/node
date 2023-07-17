@@ -1,8 +1,8 @@
 import {Multiplication} from "../multiplication.js";
 
 describe('Multiplication', () => {
-    test('0 * 5 = 0', () => {
-        expect(new Multiplication("0", "5").calculate())
+    test('0 * 15 = 0', () => {
+        expect(new Multiplication("0", "15").calculate())
             .toBe("0");
     });
     test('1 * 3445434343423 = 3445434343423', () => {
