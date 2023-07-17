@@ -1,7 +1,7 @@
 import {Multiplication} from "../multiplication.js";
 
 describe('Multiplication', () => {
-    test('0 * 15 = 0', () => {
+    test('0 * 5 = 0', () => {
         expect(new Multiplication("0", "5").calculate())
             .toBe("0");
     });
