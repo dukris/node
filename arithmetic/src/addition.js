@@ -35,7 +35,7 @@ export class Addition {
                 + ~~this.b[this.b.length - 1 - i]).toString();
             let digit = result.charAt(result.length - 1);
             carry = ~~(result.substring(0, result.length - 1));
-            answer[i] = (i === this.a.length - 1) ? result : digit;
+            answer[i] = (i === length - 1) ? result : digit;
         }
         return answer.reverse().join("");
     }

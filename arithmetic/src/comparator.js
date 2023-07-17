@@ -15,7 +15,7 @@ export class Comparator {
         let result = 0;
         if (a.length > b.length) {
             result = 1;
-        } else if (a.length <b.length) {
+        } else if (a.length < b.length) {
             result = -1;
         } else {
             for (let i = 0; i < a.length; i++) {
