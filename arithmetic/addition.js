@@ -1,12 +1,26 @@
 import {Validator} from "./validator.js";
 
+/**
+ * Addition.
+ */
 export class Addition {
 
+    /**
+     * Constructor.
+     *
+     * @param a Number as string
+     * @param b Number as string
+     */
     constructor(a, b) {
         this.a = a;
         this.b = b;
     }
 
+    /**
+     * Calculate the result of addition.
+     *
+     * @returns {string} Result
+     */
     calculate = () => {
         new Validator(this.a, this.b).check();
         this.a = [...this.a];
