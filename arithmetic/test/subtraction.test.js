@@ -1,8 +1,8 @@
 import {Subtraction} from "../subtraction.js";
 
 describe('Subtraction', () => {
-    test('0 - 0 = 0', () => {
-        expect(new Subtraction("0", "0").calculate())
+    test('15 - 15 = 0', () => {
+        expect(new Subtraction("15", "15").calculate())
             .toBe("0");
     });
     test('1 - 2 = -1', () => {
