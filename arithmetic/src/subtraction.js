@@ -1,4 +1,4 @@
-import {Validator} from "./validator.js";
+import {Comparator} from "./comparator.js";
 
 /**
  * Subtraction.
@@ -8,12 +8,12 @@ export class Subtraction {
     /**
      * Constructor.
      *
-     * @param a Number as string
-     * @param b Number as string
+     * @param a ValidNumber
+     * @param b ValidNumber
      */
     constructor(a, b) {
-        this.a = a;
-        this.b = b;
+        this.a = a.value();
+        this.b = b.value();
     }
 
     /**
@@ -21,30 +21,17 @@ export class Subtraction {
      *
      * @returns {string} Result
      */
-    calculate = () => {
-        new Validator(this.a, this.b).check();
+    value = () => {
         this.a = [...this.a];
         this.b = [...this.b];
         let negative = false;
         let answer = [];
         let carry = 0;
-        if (this.b.length > this.a.length) {
+        if (new Comparator().compare(this.a, this.b) === -1) {
             const temp = this.b;
             this.b = this.a;
             this.a = temp;
             negative = true;
-        } else if (this.b.length === this.a.length) {
-            for (let i = 0; i < this.a.length; i++) {
-                if (+this.b[i] > +this.a[i]) {
-                    const temp = this.b;
-                    this.b = this.a;
-                    this.a = temp;
-                    negative = true;
-                    break;
-                } else if (+this.b[i] < +this.a[i]) {
-                    break;
-                }
-            }
         }
         for (let i = 0; i < this.a.length; i++) {
             let first = ~~this.a[this.a.length - 1 - i] - carry;

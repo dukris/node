@@ -1,8 +1,8 @@
-import {Validator} from "./validator.js";
 import {Multiplication} from "./multiplication.js";
 import {Comparator} from "./comparator.js";
 import {Addition} from "./addition.js";
 import {Subtraction} from "./subtraction.js";
+import {ValidNumber} from "./validNumber.js";
 
 /**
  * Division.
@@ -12,12 +12,12 @@ export class Division {
     /**
      * Constructor.
      *
-     * @param a Number as string
-     * @param b Number as string
+     * @param a ValidNumber
+     * @param b ValidNumber
      */
     constructor(a, b) {
-        this.a = a;
-        this.b = b;
+        this.a = a.value();
+        this.b = b.value();
     }
 
     /**
@@ -25,20 +25,31 @@ export class Division {
      *
      * @returns {string} Result
      */
-    calculate = () => {
-        new Validator(this.a, this.b).check();
+    value = () => {
         let comparator = new Comparator();
         if (comparator.compare(this.b, "1") === 0) {
             return this.a;
         }
         let i = "1";
-        let value = new Multiplication(this.b, i).calculate();
+        let value = new Multiplication(
+            new ValidNumber(this.b),
+            new ValidNumber(i)
+        ).value();
         while (comparator.compare(value, this.a) === -1) {
-            i = new Addition(i, "1").calculate();
-            value = new Multiplication(this.b, i).calculate();
+            i = new Addition(
+                new ValidNumber(i),
+                new ValidNumber("1")
+            ).value();
+            value = new Multiplication(
+                new ValidNumber(this.b),
+                new ValidNumber(i)
+            ).value();
         }
         if (comparator.compare(value, this.a) === 1) {
-            i = new Subtraction(i, "1").calculate();
+            i = new Subtraction(
+                new ValidNumber(i),
+                new ValidNumber("1")
+            ).value();
         }
         return i;
     }

@@ -1,5 +1,3 @@
-import {Validator} from "./validator.js";
-
 /**
  * Comparator.
  */
@@ -7,9 +5,12 @@ export class Comparator {
 
     /**
      * Compare numbers.
+     *
+     * @param a Number as string
+     * @param b Number as string
+     * @returns {number} Result (-1, 0 or 1)
      */
-    compare(a, b) {
-        new Validator(a, b).check();
+    compare = (a, b) => {
         a = [...a];
         b = [...b];
         let result = 0;

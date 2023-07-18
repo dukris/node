@@ -1,5 +1,5 @@
-import {Validator} from "./validator.js";
 import {Addition} from "./addition.js";
+import {ValidNumber} from "./validNumber.js";
 
 /**
  * Multiplication.
@@ -9,12 +9,12 @@ export class Multiplication {
     /**
      * Constructor.
      *
-     * @param a Number as string
-     * @param b Number as string
+     * @param a ValidNumber
+     * @param b ValidNumber
      */
     constructor(a, b) {
-        this.a = a;
-        this.b = b;
+        this.a = a.value();
+        this.b = b.value();
     }
 
     /**
@@ -22,8 +22,7 @@ export class Multiplication {
      *
      * @returns {string} Result
      */
-    calculate = () => {
-        new Validator(this.a, this.b).check();
+    value = () => {
         this.a = [...this.a];
         this.b = [...this.b];
         let answer = [];
@@ -43,8 +42,10 @@ export class Multiplication {
             }
             answer.push(sum);
         }
-        return answer.reduce((a, b) => new Addition(a, b).calculate(), "0")
-            .replace(/^0+(?=\d)/, '');
+        return answer.reduce((a, b) => new Addition(
+            new ValidNumber(a),
+            new ValidNumber(b)
+        ).value(), "0").replace(/^0+(?=\d)/, '');
     }
 
 }
