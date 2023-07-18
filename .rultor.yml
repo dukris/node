@@ -1,0 +1,8 @@
+architect:
+  - hizmailovich
+docker:
+  image: yegor256/rultor-image:1.18.0
+merge:
+  script: |-
+    npm install
+    npm run build --if-present
