@@ -13,7 +13,7 @@ Create a JavaScript library that provides advanced data transformation functions
 4. `convertToNumber` - accepts a single argument of any type and attempts to convert it to a number. For strings, use parseFloat() or parseInt() for conversion. For other types, use appropriate operations or functions to perform the conversion. If the conversion is not possible, it should throw an error. 
 5. `coerceToType` - accepts two arguments: value and type. It attempts to convert the value to the specified type using type coercion. The function should return the coerced value if successful. If the coercion is not possible, it should throw an error.
 
-**Task #3 (arithmetic)**
+**Task #3 (functions)**
 
 *Immutability and Pure Functions:*
 1. Implement a pure function called `calculateDiscountedPrice` that takes an array of products and a discount percentage as arguments. The function should return a new array of products with discounted prices based on the given percentage, without modifying the original products.
