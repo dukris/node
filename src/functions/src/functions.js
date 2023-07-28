@@ -40,3 +40,19 @@ export const getFullName = (person) => concat(person.firstName)(person.lastName)
  * @returns {function(string): string} Result
  */
 const concat = first => second => first + " " + second;
+
+/**
+ * Filter unique words from string.
+ *
+ * @param text String
+ * @returns {any[]} Array of unique words sorted in alphabetical order
+ */
+export const filterUniqueWords = (text) => [...new Set(toSortedArray(text))];
+
+/**
+ * Convert string to sorted array.
+ *
+ * @param text String
+ * @returns {*} Array sorted in alphabetical order
+ */
+const toSortedArray = (text) => text.split(' ').sort();
