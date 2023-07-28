@@ -24,3 +24,19 @@ export const calculateTotalPrice = (products) => {
         .map(product => product.price)
         .reduce((a, b) => a + b, 0);
 }
+
+/**
+ * Get person's full name.
+ *
+ * @param person Person
+ * @returns {string} Full name
+ */
+export const getFullName = (person) => concat(person.firstName)(person.lastName);
+
+/**
+ * Concatenation.
+ *
+ * @param first String
+ * @returns {function(string): string} Result
+ */
+const concat = first => second => first + " " + second;
