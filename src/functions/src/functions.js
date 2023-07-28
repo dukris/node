@@ -12,3 +12,15 @@ export const calculateDiscountedPrice = (products, percentage) => {
             return product;
         });
 }
+
+/**
+ * Calculate total price of products.
+ *
+ * @param products Array of products
+ * @returns {number} Total price of all products
+ */
+export const calculateTotalPrice = (products) => {
+    return [...products]
+        .map(product => product.price)
+        .reduce((a, b) => a + b, 0);
+}
