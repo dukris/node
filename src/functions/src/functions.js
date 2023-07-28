@@ -91,3 +91,25 @@ export const createCounter = (function () {
     let counter = 0;
     return () => counter++;
 })();
+
+/**
+ * Invoke the original function multiple times based on the provided number.
+ *
+ * @param fun Function
+ * @param args Arguments
+ * @returns {(function(): void)|*} New function
+ */
+export const repeatFunction = (fun, args) => {
+    return () => {
+        if (args < 0) {
+            while (true) {
+                fun();
+            }
+        } else {
+            for (let i = 0; i < args; i++) {
+                fun();
+            }
+        }
+    }
+}
+
