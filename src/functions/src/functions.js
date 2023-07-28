@@ -56,3 +56,28 @@ export const filterUniqueWords = (text) => [...new Set(toSortedArray(text))];
  * @returns {*} Array sorted in alphabetical order
  */
 const toSortedArray = (text) => text.split(' ').sort();
+
+/**
+ * Get average grade.
+ *
+ * @param students Array of students
+ * @returns {number} Average grade of all students
+ */
+export const getAverageGrade = (students) =>
+    calculateAverageGrade([...students].flatMap(student => student.grades));
+
+/**
+ * Calculate average grade.
+ *
+ * @param grades Array of numbers
+ * @returns {number} Result
+ */
+const calculateAverageGrade = (grades) => sum(grades) / grades.length;
+
+/**
+ * Calculate sum.
+ *
+ * @param grades Array of numbers
+ * @returns {number} Result
+ */
+const sum = (grades) => grades.reduce((a, b) => a + b, 0);
