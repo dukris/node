@@ -81,3 +81,13 @@ const calculateAverageGrade = (grades) => sum(grades) / grades.length;
  * @returns {number} Result
  */
 const sum = (grades) => grades.reduce((a, b) => a + b, 0);
+
+/**
+ * Increment the count.
+ *
+ * @returns {function(number): number} Counter
+ */
+export const createCounter = (function () {
+    let counter = 0;
+    return () => counter++;
+})();
