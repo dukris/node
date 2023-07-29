@@ -87,12 +87,10 @@ const sum = (grades) => grades.reduce((a, b) => a + b, 0);
  *
  * @returns {function(number): number} Counter
  */
-export const createCounter = (
-    function () {
-        let counter = 0;
-        return () => counter++;
-    }
-)();
+export const createCounter = () => {
+    let counter = 0;
+    return () => counter++;
+}
 
 /**
  * Invoke the original function multiple times based on the provided number.
@@ -142,3 +140,38 @@ export const power = (base, exponent, result = 1) => {
     }
 }
 
+/**
+ * Apply the mapping function to each element of the array one at a time.
+ *
+ * @param array Array
+ * @param fun Map function
+ * @returns {(function(): (*|number))|*} Result
+ */
+export const lazyMap = (array, fun) => {
+    let i = 0;
+    return () => {
+        if (i < array.length) {
+            return fun([...array][i++]);
+        }
+    }
+}
+
+/**
+ * Generate Fibonacci numbers one at a time.
+ *
+ * @returns {(function(): (number))|*} Number
+ */
+export const fibonacciGenerator = () => {
+    let index = 0;
+    let prev1 = 0;
+    let prev2 = 1;
+    return () => {
+        if (index < 2) {
+            return index++;
+        }
+        let current = prev1 + prev2;
+        prev1 = prev2;
+        prev2 = current;
+        return current;
+    }
+}
