@@ -1,9 +1,9 @@
 import {
     calculateDiscountedPrice, calculateFactorial,
-    calculateTotalPrice, createCounter,
+    calculateTotalPrice, createCounter, fibonacciGenerator,
     filterUniqueWords,
     getAverageGrade,
-    getFullName, power
+    getFullName, lazyMap, power, repeatFunction
 } from "../src/functions.js";
 
 describe("Immutability and Pure Functions", () => {
@@ -72,11 +72,17 @@ describe("Function Composition and Point-Free Style", () => {
     });
 });
 describe("Closures and Higher-Order Functions", () => {
-    test("Test case for createCounter - first call", () => {
-        expect(createCounter()).toBe(0);
+    test("Test case for createCounter", () => {
+        let counter = createCounter();
+        for (let i = 0; i < 5; i++) {
+            expect(counter()).toBe(i);
+        }
     });
-    test("Test case for createCounter - second call", () => {
-        expect(createCounter()).toBe(1);
+    test("Test case for repeatFunction", () => {
+        const consoleSpy = jest.spyOn(console, 'log');
+        repeatFunction(() => console.log('Hello'), 3)();
+        expect(consoleSpy).toHaveBeenCalledTimes(3);
+        expect(consoleSpy).toHaveBeenCalledWith('Hello');
     });
 });
 describe("Recursion and Tail Call Optimization", () => {
@@ -85,5 +91,21 @@ describe("Recursion and Tail Call Optimization", () => {
     });
     test("Test case for power", () => {
         expect(power(5, 3)).toBe(125);
+    });
+});
+describe("Lazy Evaluation and Generators", () => {
+    test("Test case for lazyMap", () => {
+        let array = [1, 2, 3, 4, 5];
+        let value = lazyMap(array, (a) => a * a);
+        for (let i = 0; i < array.length; i++) {
+            expect(value()).toBe(array[i] * array[i]);
+        }
+    });
+    test("Test case for fibonacciGenerator", () => {
+        let expected = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233];
+        let value = fibonacciGenerator();
+        for (let i = 0; i < expected.length; i++) {
+            expect(value()).toBe(expected[i]);
+        }
     });
 });
