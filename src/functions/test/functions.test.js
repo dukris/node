@@ -1,5 +1,5 @@
 import {
-    calculateDiscountedPrice,
+    calculateDiscountedPrice, calculateFactorial,
     calculateTotalPrice, createCounter,
     filterUniqueWords,
     getAverageGrade,
@@ -78,4 +78,10 @@ describe("Closures and Higher-Order Functions", () => {
     test("Test case for createCounter - second call", () => {
         expect(createCounter()).toBe(1);
     });
+});
+describe("Recursion and Tail Call Optimization", () => {
+    test("Test case for calculateFactorial", () => {
+        expect(calculateFactorial(3)).toBe(6);
+    });
+
 });
