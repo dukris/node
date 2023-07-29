@@ -87,29 +87,41 @@ const sum = (grades) => grades.reduce((a, b) => a + b, 0);
  *
  * @returns {function(number): number} Counter
  */
-export const createCounter = (function () {
-    let counter = 0;
-    return () => counter++;
-})();
+export const createCounter = (
+    function () {
+        let counter = 0;
+        return () => counter++;
+    }
+)();
 
 /**
  * Invoke the original function multiple times based on the provided number.
  *
  * @param fun Function
- * @param args Arguments
+ * @param number Number
  * @returns {(function(): void)|*} New function
  */
-export const repeatFunction = (fun, args) => {
+export const repeatFunction = (fun, number) => {
     return () => {
-        if (args < 0) {
-            while (true) {
-                fun();
-            }
-        } else {
-            for (let i = 0; i < args; i++) {
-                fun();
-            }
+        let i = 0;
+        while (i < number) {
+            fun();
+            i++;
         }
     }
 }
 
+/**
+ * Calculate the factorial of a given number.
+ *
+ * @param number Number
+ * @param result Temp result
+ * @returns {number|number|*} Factorial of a given number
+ */
+export const calculateFactorial = (number, result = 1) => {
+    if (number < 2) {
+        return result;
+    } else {
+        return calculateFactorial(number - 1, result * number);
+    }
+}
