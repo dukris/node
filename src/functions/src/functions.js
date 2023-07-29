@@ -125,3 +125,20 @@ export const calculateFactorial = (number, result = 1) => {
         return calculateFactorial(number - 1, result * number);
     }
 }
+
+/**
+ * Calculate the power of the base to the exponent.
+ *
+ * @param base Base
+ * @param exponent Exponent
+ * @param result Temp result
+ * @returns {number|*|number} Power of the base to the exponent
+ */
+export const power = (base, exponent, result = 1) => {
+    if (exponent < 1) {
+        return result;
+    } else {
+        return power(base, --exponent, result * base);
+    }
+}
+
