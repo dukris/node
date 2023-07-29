@@ -3,7 +3,7 @@ import {
     calculateTotalPrice, createCounter,
     filterUniqueWords,
     getAverageGrade,
-    getFullName
+    getFullName, power
 } from "../src/functions.js";
 
 describe("Immutability and Pure Functions", () => {
@@ -83,5 +83,7 @@ describe("Recursion and Tail Call Optimization", () => {
     test("Test case for calculateFactorial", () => {
         expect(calculateFactorial(3)).toBe(6);
     });
-
+    test("Test case for power", () => {
+        expect(power(5, 3)).toBe(125);
+    });
 });
