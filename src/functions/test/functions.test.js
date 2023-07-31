@@ -51,8 +51,8 @@ describe("Function Composition and Point-Free Style", () => {
         ).toBe("First Last");
     });
     test("Test case for filterUniqueWords", () => {
-        expect(filterUniqueWords("dfghs shfjf asasd asasd"))
-            .toStrictEqual(['asasd', 'dfghs', 'shfjf'])
+        expect(filterUniqueWords("How HOw To to make MaKe my My SalaRy salary bigger bigGer?"))
+            .toStrictEqual(["bigger", "how", "make", "my", "salary", "to"])
     });
     test("Test case for getAverageGrade", () => {
         expect(getAverageGrade([

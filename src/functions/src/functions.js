@@ -47,15 +47,25 @@ const concat = first => second => first + " " + second;
  * @param text String
  * @returns {any[]} Array of unique words sorted in alphabetical order
  */
-export const filterUniqueWords = (text) => [...new Set(toSortedArray(text))];
+export const filterUniqueWords = (text) => toSortedArray([...new Set(toUniqueArray(text))]);
 
 /**
- * Convert string to sorted array.
+ * Convert string to unique array.
  *
  * @param text String
  * @returns {*} Array sorted in alphabetical order
  */
-const toSortedArray = (text) => text.split(' ').sort();
+const toUniqueArray = (text) => text.match(/\b(\w+)\b/g)
+    .map(word => word.toLowerCase());
+
+/**
+ * Sort array.
+ *
+ * @param array Array
+ * @returns {*} Array sorted in alphabetical order
+ */
+const toSortedArray = (array) => array.sort();
+
 
 /**
  * Get average grade.
