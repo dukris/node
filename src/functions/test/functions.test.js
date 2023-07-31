@@ -80,9 +80,9 @@ describe("Closures and Higher-Order Functions", () => {
     });
     test("Test case for repeatFunction", () => {
         const consoleSpy = jest.spyOn(console, 'log');
-        repeatFunction(() => console.log('Hello'), 3)();
+        repeatFunction((a) => console.log('Hello ' + a), 3)('Hanna');
         expect(consoleSpy).toHaveBeenCalledTimes(3);
-        expect(consoleSpy).toHaveBeenCalledWith('Hello');
+        expect(consoleSpy).toHaveBeenCalledWith('Hello Hanna');
     });
 });
 describe("Recursion and Tail Call Optimization", () => {

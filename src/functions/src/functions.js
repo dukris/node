@@ -110,10 +110,10 @@ export const createCounter = () => {
  * @returns {(function(): void)|*} New function
  */
 export const repeatFunction = (fun, number) => {
-    return () => {
+    return (args) => {
         let i = 0;
         while (i < number) {
-            fun();
+            fun(args);
             i++;
         }
     }
