@@ -41,7 +41,7 @@ export const getFullName = (person) => {
     if (typeof person != 'object') {
         throw new TypeError("Input format is wrong!")
     }
-    concat(person.firstName)(person.lastName);
+    return concat(person.firstName)(person.lastName);
 }
 
 /**
@@ -62,7 +62,7 @@ export const filterUniqueWords = (text) => {
     if (typeof text != 'string') {
         throw new TypeError("Input format is wrong!")
     }
-    toSortedArray([...new Set(toUniqueArray(text))]);
+    return toSortedArray([...new Set(toUniqueArray(text))]);
 }
 
 /**
@@ -92,7 +92,7 @@ export const getAverageGrade = (students) => {
     if (typeof students != 'object') {
         throw new TypeError("Input format is wrong!")
     }
-    calculateAverageGrade([...students].flatMap(student => student.grades));
+    return calculateAverageGrade([...students].flatMap(student => student.grades));
 }
 
 
