@@ -19,7 +19,7 @@ describe("Object Property Manipulation", () => {
         expect(JSON.stringify(person)).toBe(JSON.stringify(source));
     });
     test("Check address property", () => {
-        expect(Object.getOwnPropertyDescriptor(person, "address").value)
+        expect(Object.getOwnPropertyDescriptor(person, 'address').value)
             .toStrictEqual({});
     });
 });
