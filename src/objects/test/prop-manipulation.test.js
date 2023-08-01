@@ -18,5 +18,9 @@ describe("Object Property Manipulation", () => {
             .toStrictEqual(expected);
         expect(JSON.stringify(person)).toBe(JSON.stringify(source));
     });
+    test("Check address property", () => {
+        expect(Object.getOwnPropertyDescriptor(person, "address").value)
+            .toStrictEqual({});
+    });
 });
 
