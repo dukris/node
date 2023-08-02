@@ -22,6 +22,9 @@ Object.defineProperties(product, {
  * @returns {number} Total price
  */
 export const getTotalPrice = (product) => {
+    if (typeof product != 'object') {
+        throw new TypeError("Input format is wrong!")
+    }
     return calculatePrice(
         retrieveProperty(product, 'price'),
         retrieveProperty(product, 'quantity')
@@ -36,8 +39,11 @@ export const getTotalPrice = (product) => {
  * @returns {any} Value
  */
 const retrieveProperty = (obj, property) => {
+    if (typeof obj != 'object' || typeof property != 'string') {
+        throw new TypeError("Input format is wrong!")
+    }
     if (!obj.hasOwnProperty(property)) {
-        throw TypeError("The property doesn't exist!");
+        throw Error("The property doesn't exist!");
     }
     return Object.getOwnPropertyDescriptor(product, property).value;
 }
@@ -58,6 +64,9 @@ const calculatePrice = (price, quantity) => price * quantity;
  * @param property Property name
  */
 export const deleteNonConfigurable = (product, property) => {
+    if (typeof product != 'object' || typeof property != 'string') {
+        throw new TypeError("Input format is wrong!")
+    }
     if (!product.hasOwnProperty(property)
         || !Object.getOwnPropertyDescriptor(product, property).configurable) {
         throw TypeError("The property can not be deleted!");

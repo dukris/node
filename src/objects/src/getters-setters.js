@@ -40,8 +40,9 @@ export const bankAccount = {
  * @param amount Amount
  */
 export const transfer = (current, target, amount) => {
-    if (typeof amount != 'number') {
-        throw new TypeError("Amount should be a number!")
+    if (typeof current != 'object' || typeof target != 'object'
+        || typeof amount != 'number') {
+        throw new TypeError("Input format is wrong!")
     }
     if (current.balance < amount) {
         throw new Error(`Unable to transfer $${amount}!`)

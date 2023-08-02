@@ -11,6 +11,9 @@ export const person = {
      * @returns {person} Updated person
      */
     updateInfo(info) {
+        if (typeof info != 'object') {
+            throw new TypeError("Input format is wrong!")
+        }
         const copied = JSON.parse(JSON.stringify(person));
         Object.getOwnPropertyNames(info)
             .forEach(key => copied[key] = info[key]);
