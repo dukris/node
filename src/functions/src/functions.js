@@ -217,3 +217,25 @@ export const fibonacciGenerator = () => {
         return current;
     }
 }
+
+/**
+ * Generate Fibonacci number with caching.
+ *
+ * @returns {(function(*): (*|number))|*} Number
+ */
+export const cachedFibonacciGenerator = () => {
+    const cache = {};
+    return function fibonacci(number) {
+        if (cache[number]) {
+            return cache[number];
+        }
+        if (number === 0) {
+            return 0;
+        }
+        if (number < 3) {
+            return 1;
+        }
+        cache[number] = fibonacci(number - 1) + fibonacci(number - 2);
+        return cache[number];
+    }
+};

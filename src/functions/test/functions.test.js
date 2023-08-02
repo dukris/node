@@ -1,4 +1,5 @@
 import {
+    cachedFibonacciGenerator,
     calculateDiscountedPrice, calculateFactorial,
     calculateTotalPrice, createCounter, fibonacciGenerator,
     filterUniqueWords,
@@ -106,6 +107,13 @@ describe("Lazy Evaluation and Generators", () => {
         let value = fibonacciGenerator();
         for (let i = 0; i < expected.length; i++) {
             expect(value()).toBe(expected[i]);
+        }
+    });
+    test("Test case for cachedFibonacciGenerator", () => {
+        let expected = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233];
+        let value = cachedFibonacciGenerator();
+        for (let i = 0; i < expected.length; i++) {
+            expect(value(i)).toBe(expected[i]);
         }
     });
 });
