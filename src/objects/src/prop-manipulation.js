@@ -21,7 +21,8 @@ export const person = {
             .forEach(key =>
                 Object.defineProperty(copied, key, {
                     writable: false
-                }))
+                })
+            )
         return copied;
     }
 };
