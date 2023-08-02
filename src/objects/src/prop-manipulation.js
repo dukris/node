@@ -17,6 +17,11 @@ export const person = {
         const copied = JSON.parse(JSON.stringify(person));
         Object.getOwnPropertyNames(info)
             .forEach(key => copied[key] = info[key]);
+        Object.getOwnPropertyNames(copied)
+            .forEach(key =>
+                Object.defineProperty(copied, key, {
+                    writable: false
+                }))
         return copied;
     }
 };
