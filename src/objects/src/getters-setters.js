@@ -32,13 +32,20 @@ export const bankAccount = {
     }
 }
 
-export const transfer = (source, target, amount) => {
+/**
+ * Transfer amount from the current account to the target account.
+ *
+ * @param current Current account
+ * @param target Target account
+ * @param amount Amount
+ */
+export const transfer = (current, target, amount) => {
     if (typeof amount != 'number') {
         throw new TypeError("Amount should be a number!")
     }
-    if (source.balance < amount) {
+    if (current.balance < amount) {
         throw new Error(`Unable to transfer $${amount}!`)
     }
-    source.balance -= amount;
+    current.balance -= amount;
     target.balance += amount;
 }
