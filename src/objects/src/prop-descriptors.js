@@ -1,21 +1,44 @@
-import {retrieveProperty} from "./enum-deletion.js";
-
+/**
+ * Create immutable object.
+ *
+ * @param obj Object
+ * @returns {any} New object
+ */
 export const createImmutableObject = (obj) => {
     if (typeof obj != 'object') {
-        throw new TypeError("Input format is wrong!")
+        throw new TypeError("Input format is wrong!");
     }
     const copied = JSON.parse(JSON.stringify(obj));
-    Object.getOwnPropertyNames(obj)
-        .forEach(key => {
-            retrieveProperty(copied, key).writable = false;
-        })
+    setUpProperties(copied);
     return copied;
 }
 
-const obj = {
-    name: 'Name',
-    age: 30
+/**
+ * Make property read-only.
+ *
+ * @param obj Object
+ * @param property Property name
+ */
+const setReadOnly = (obj, property) => {
+    if (typeof obj != 'object' || typeof property != 'string') {
+        throw new TypeError("Input format is wrong!");
+    }
+    Object.defineProperty(obj, property, {
+        writable: false
+    });
 }
-const im = createImmutableObject(obj);
-console.log(im);
-console.log(Object.getOwnPropertyDescriptors(im))
+
+/**
+ * Set up read-only properties.
+ *
+ * @param obj Object
+ */
+const setUpProperties = (obj) => {
+    Object.entries(obj)
+        .forEach(([key, value]) => {
+            if (typeof value === 'object') {
+                setUpProperties(value);
+            }
+            setReadOnly(obj, key);
+        })
+}

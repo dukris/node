@@ -26,7 +26,7 @@ export const bankAccount = {
      */
     set balance(value) {
         if (typeof value != 'number') {
-            throw new TypeError("Balance should be a number!")
+            throw new TypeError("Balance should be a number!");
         }
         this._balance = value;
     }
@@ -42,10 +42,10 @@ export const bankAccount = {
 export const transfer = (current, target, amount) => {
     if (typeof current != 'object' || typeof target != 'object'
         || typeof amount != 'number') {
-        throw new TypeError("Input format is wrong!")
+        throw new TypeError("Input format is wrong!");
     }
     if (current.balance < amount) {
-        throw new Error(`Unable to transfer $${amount}!`)
+        throw new Error(`Unable to transfer $${amount}!`);
     }
     current.balance -= amount;
     target.balance += amount;

@@ -22,7 +22,7 @@ export const person = {
                 Object.defineProperty(copied, key, {
                     writable: false
                 })
-            )
+            );
         return copied;
     }
 };

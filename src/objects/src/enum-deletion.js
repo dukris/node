@@ -23,7 +23,7 @@ Object.defineProperties(product, {
  */
 export const getTotalPrice = (product) => {
     if (typeof product != 'object') {
-        throw new TypeError("Input format is wrong!")
+        throw new TypeError("Input format is wrong!");
     }
     return calculatePrice(
         retrieveProperty(product, 'price').value,
@@ -65,7 +65,7 @@ const calculatePrice = (price, quantity) => price * quantity;
  */
 export const deleteNonConfigurable = (product, property) => {
     if (typeof product != 'object' || typeof property != 'string') {
-        throw new TypeError("Input format is wrong!")
+        throw new TypeError("Input format is wrong!");
     }
     if (!product.hasOwnProperty(property)
         || !Object.getOwnPropertyDescriptor(product, property).configurable) {
