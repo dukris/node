@@ -26,26 +26,26 @@ export const getTotalPrice = (product) => {
         throw new TypeError("Input format is wrong!")
     }
     return calculatePrice(
-        retrieveProperty(product, 'price'),
-        retrieveProperty(product, 'quantity')
+        retrieveProperty(product, 'price').value,
+        retrieveProperty(product, 'quantity').value
     );
 }
 
 /**
- * Retrieve property value.
+ * Retrieve property.
  *
  * @param obj Object
  * @param property Property name
- * @returns {any} Value
+ * @returns {any} Property
  */
-const retrieveProperty = (obj, property) => {
+export const retrieveProperty = (obj, property) => {
     if (typeof obj != 'object' || typeof property != 'string') {
         throw new TypeError("Input format is wrong!")
     }
     if (!obj.hasOwnProperty(property)) {
         throw Error("The property doesn't exist!");
     }
-    return Object.getOwnPropertyDescriptor(product, property).value;
+    return Object.getOwnPropertyDescriptor(product, property);
 }
 
 /**
