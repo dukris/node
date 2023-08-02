@@ -11,7 +11,7 @@ export const deepCloneObject = (obj) => {
     const result = {};
     const keys = Object.keys(obj);
     for (let key in keys) {
-        result[keys[key]] = deepCloneObject(obj[keys[key]])
+        result[keys[key]] = deepCloneObject(obj[keys[key]]);
     }
     return result;
 }
