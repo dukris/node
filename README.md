@@ -1,17 +1,15 @@
 ## NodeJS
 
 ### Content
-- [Task #1](#task1)
-- [Task #2](#task2)
-- [Task #3](#task3)
-- [Task #4](#task4)
-- [Task #5](#task5)
+- [Task #1](#task-1-arithmetic)
+- [Task #2](#task-2-conversion)
+- [Task #3](#task-3-functions)
+- [Task #4](#task-4-objects)
+- [Task #5](#task-5-arrays)
 
-<a id="task1"></a>
 #### Task #1 (arithmetic)
 Perform arithmetic operations on strings without relying on bigint or arithmetic libraries. The operations should function as string functions, considering only positive integers (you can avoid negative numbers, all numbers will be positive and integer).
 
-<a id="task2"></a>
 #### Task #2 ([conversion](https://github.com/hizmailovich/conversion))
 Create a JavaScript library that provides advanced data transformation functions. The library should include the following features:
 1. `addValues` - accepts two arguments of any type and performs the appropriate addition operation based on the types of the arguments. The function should return the result of the addition. If the addition is not possible, it should throw an error.
@@ -20,7 +18,6 @@ Create a JavaScript library that provides advanced data transformation functions
 4. `convertToNumber` - accepts a single argument of any type and attempts to convert it to a number. For strings, use parseFloat() or parseInt() for conversion. For other types, use appropriate operations or functions to perform the conversion. If the conversion is not possible, it should throw an error. 
 5. `coerceToType` - accepts two arguments: value and type. It attempts to convert the value to the specified type using type coercion. The function should return the coerced value if successful. If the coercion is not possible, it should throw an error.
 
-<a id="task3"></a>
 #### Task #3 (functions)
 *Immutability and Pure Functions:*
 1. Implement a pure function called `calculateDiscountedPrice` that takes an array of products and a discount percentage as arguments. The function should return a new array of products with discounted prices based on the given percentage, without modifying the original products.
@@ -43,7 +40,6 @@ Create a JavaScript library that provides advanced data transformation functions
 1. Implement a lazy evaluation function called `lazyMap` that takes an array and a mapping function. The function should return a lazy generator that applies the mapping function to each element of the array one at a time.
 2. Create a lazy generator function called `fibonacciGenerator` that generates Fibonacci numbers one at a time using lazy evaluation.
 
-<a id="task4"></a>
 #### Task #4 (objects)
 *Object Property Manipulation*
 1. Create an object called person with the following properties and values:
@@ -91,7 +87,6 @@ balance: 1000 (default value)
 *Object Property Validation*
 1. Implement a function called `validateObject` that takes an object and a validation schema as arguments. The schema should define the required properties, their types, and any additional validation rules. The function should return true if the object matches the schema, and false otherwise. You can choose any schema you want.
 
-<a id="task5"></a>
 #### Task #5 (arrays)
 *Advanced Array Filtering*
 1. Create a function called `customFilterUnique` that takes an array and a callback function as arguments. The `customFilterUnique` function should filter the array using the callback function to determine uniqueness. The resulting array should contain only unique elements based on the callback's logic.
