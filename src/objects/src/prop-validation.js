@@ -7,9 +7,10 @@
  */
 export const validateObject = (obj, schema) => {
     if (typeof obj === 'object') {
-        return Object.keys(schema)
-            .every(key => validateObject(obj[key], schema[key]));
+        return Object.keys(schema).length !== Object.keys(obj).length ? false :
+            Object.keys(schema)
+                .every(key => validateObject(obj[key], schema[key]));
     } else {
-        return obj?.constructor === schema;
+        return obj.constructor === schema;
     }
 }
