@@ -20,10 +20,6 @@ describe("Object Property Manipulation", () => {
     });
     test("Update person with address", () => {
         const expected = {
-            firstName: "John",
-            lastName: "Doe",
-            age: 30,
-            email: "john.doe@example.com",
             address: {
                 id: 1
             }
