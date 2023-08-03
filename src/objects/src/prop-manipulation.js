@@ -14,16 +14,14 @@ export const person = {
         if (typeof info != 'object') {
             throw new TypeError("Input format is wrong!")
         }
-        const copied = JSON.parse(JSON.stringify(person));
+        // const copied = JSON.parse(JSON.stringify(person));
         Object.getOwnPropertyNames(info)
-            .forEach(key => copied[key] = info[key]);
-        Object.getOwnPropertyNames(copied)
-            .forEach(key =>
-                Object.defineProperty(copied, key, {
-                    writable: false
-                })
-            );
-        return copied;
+            .forEach(key => {
+                if (Object.getOwnPropertyDescriptor(this, key).writable) {
+                    this[key] = info[key];
+                }
+            });
+        return this;
     }
 };
 
@@ -44,6 +42,7 @@ Object.defineProperties(person, {
 
 Object.defineProperty(person, "address", {
     value: {},
+    writable: true,
     enumerable: false,
     configurable: false
 });
