@@ -75,3 +75,20 @@ export const getArrayUnion = (first, second) => {
     }
     return [...new Set([...first].concat(second))];
 }
+
+/**
+ * Execute the provided function and measure the execution time.
+ *
+ * @param fun Function
+ * @param args Arguments
+ * @returns {number} Execution time
+ */
+export const measureArrayPerformance = (fun, ...args) => {
+    if (typeof fun != 'function') {
+        throw new TypeError("Input format is wrong!");
+    }
+    const start = performance.now();
+    fun(...args);
+    const end = performance.now();
+    return end - start;
+}
