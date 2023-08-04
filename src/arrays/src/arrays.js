@@ -47,3 +47,17 @@ export const customShuffle = (array) => {
     }
     return array;
 }
+
+/**
+ * Array intersection.
+ *
+ * @param first First array
+ * @param second Second array
+ * @returns {*[]} New array containing the common elements between the two arrays
+ */
+export const getArrayIntersection = (first, second) => {
+    if (typeof first != 'object' || typeof second != 'object') {
+        throw new TypeError("Input format is wrong!");
+    }
+    return [...first].filter(element => second.includes(element));
+}
