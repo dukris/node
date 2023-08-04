@@ -77,5 +77,3 @@ describe("Array Intersection and Union", () => {
         expect(getArrayUnion(first, second)).toStrictEqual([1, 2, 3, 4, 5, 6, 8, 9]);
     });
 });
-
-
