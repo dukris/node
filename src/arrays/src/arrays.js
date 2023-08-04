@@ -29,3 +29,24 @@ export const chunkArray = (array, size) => {
     }
     return arrays;
 }
+
+/**
+ * Durstenfeld shuffle.
+ *
+ * @param array Array
+ * @returns {*[]} New array with its elements randomly shuffled
+ */
+export const customShuffle = (array) => {
+    if (typeof array != 'object') {
+        throw new TypeError("Input format is wrong!");
+    }
+    array = [...array];
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+    return array;
+}
+
