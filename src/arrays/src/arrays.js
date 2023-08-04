@@ -89,6 +89,7 @@ export const measureArrayPerformance = (fun, ...args) => {
     }
     const start = performance.now();
     fun(...args);
-    const end = performance.now();
-    return end - start;
+    const result = performance.now() - start;
+    console.log(result);
+    return result;
 }

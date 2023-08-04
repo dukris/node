@@ -1,6 +1,6 @@
 import {
     chunkArray,
-    customFilterUnique,
+    customFilterUnique, customShuffle,
     getArrayIntersection,
     getArrayUnion,
     measureArrayPerformance
@@ -84,22 +84,28 @@ describe("Array Intersection and Union", () => {
     });
 });
 describe("Array Performance Analysis", () => {
-    const array = [
-        {
-            id: 1,
-            name: 'First'
-        },
-        {
-            id: 2,
-            name: 'Second'
-        },
-        {
-            id: 1,
-            name: 'Third'
-        }
-    ];
-    test("Measure array performance", () => {
+    test("Measure performance", () => {
+        const array = [
+            {
+                id: 1,
+                name: 'First'
+            },
+            {
+                id: 2,
+                name: 'Second'
+            },
+            {
+                id: 1,
+                name: 'Third'
+            }
+        ];
+        const first = [1, 2, 3, 4, 5, 6];
+        const second = [1, 2, 3, 8, 9];
         expect(measureArrayPerformance(customFilterUnique, array, (value, index, self) =>
             self.findIndex(item => item.id === value.id) === index)).toBeDefined();
+        expect(measureArrayPerformance(customShuffle, array)).toBeDefined();
+        expect(measureArrayPerformance(chunkArray, array, 1)).toBeDefined();
+        expect(measureArrayPerformance(getArrayIntersection, first, second)).toBeDefined();
+        expect(measureArrayPerformance(getArrayUnion, first, second)).toBeDefined();
     });
 });
