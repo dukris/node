@@ -1,4 +1,10 @@
-import {chunkArray, customFilterUnique, getArrayIntersection, getArrayUnion} from "../src/arrays.js";
+import {
+    chunkArray,
+    customFilterUnique,
+    getArrayIntersection,
+    getArrayUnion,
+    measureArrayPerformance
+} from "../src/arrays.js";
 
 describe("Advanced Array Filtering", () => {
     test("Filter array", () => {
@@ -75,5 +81,25 @@ describe("Array Intersection and Union", () => {
     });
     test("Array Union", () => {
         expect(getArrayUnion(first, second)).toStrictEqual([1, 2, 3, 4, 5, 6, 8, 9]);
+    });
+});
+describe("Array Performance Analysis", () => {
+    const array = [
+        {
+            id: 1,
+            name: 'First'
+        },
+        {
+            id: 2,
+            name: 'Second'
+        },
+        {
+            id: 1,
+            name: 'Third'
+        }
+    ];
+    test("Measure array performance", () => {
+        expect(measureArrayPerformance(customFilterUnique, array, (value, index, self) =>
+            self.findIndex(item => item.id === value.id) === index)).toBeDefined();
     });
 });
