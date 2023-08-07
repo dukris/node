@@ -15,3 +15,18 @@ export const deepCloneObject = (obj) => {
     }
     return result;
 }
+
+/**
+ * Retrieve deep copy of the object without recursion.
+ *
+ * @param obj Object
+ * @returns {{}|*} Clone
+ */
+export const deepClone = (obj) => {
+    if (typeof obj != 'object' || obj == null) {
+        throw new TypeError("Input format is wrong!");
+    }
+    const result = {};
+    Object.keys(obj).forEach(key => result[key] = obj[key]);
+    return result;
+}
