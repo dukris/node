@@ -30,11 +30,21 @@ describe("Object Deep Cloning", () => {
                 }
             ]
         };
+        const a = {
+            b: {
+                c: 42
+            }
+        };
         const clone = deepClone(obj);
+        const aClone = deepClone(a);
+        expect(aClone).toStrictEqual(a);
         expect(clone).toStrictEqual(obj);
-        clone.firstName = "Jane";
-        expect(clone.firstName).toBe("Jane");
-        expect(obj.firstName).toBe("John");
+        aClone.b.c = 2;
+        clone.addresses[0].id = 3;
+        expect(clone.addresses[0].id).toBe(3);
+        expect(obj.addresses[0].id).toBe(1);
+        expect(aClone.b.c).toBe(2);
+        expect(a.b.c).toBe(42);
     });
 
 });
