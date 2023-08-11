@@ -24,3 +24,18 @@ export const localize = (strings, ...args) => {
         result += `${strings[index]}${translations[language][arg]}`)
     return result += strings.at(-1);
 }
+
+/**
+ * Highlight each occurrence of a keyword in the template.
+ *
+ * @param template String template
+ * @param keywords Array of keywords
+ * @returns {string} Result
+ */
+export const highlightKeywords = (template, keywords) => { // todo insert words into brackets
+    keywords.forEach((word) => {
+        template = template.replace(word, `<span class='highlight'>${word}</span>`);
+        return template;
+    })
+    return template;
+}
