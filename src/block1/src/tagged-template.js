@@ -32,7 +32,7 @@ export const localize = (strings, ...args) => {
  * @param keywords Array of keywords
  * @returns {string} Result
  */
-export const highlightKeywords = (template, keywords) => { // todo insert words into brackets
+export const highlightKeywords = (template, keywords) => { // todo insert words in brackets
     keywords.forEach((word) => {
         template = template.replace(word, `<span class='highlight'>${word}</span>`);
         return template;
