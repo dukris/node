@@ -39,3 +39,17 @@ export const highlightKeywords = (template, keywords) => { // todo insert words 
     })
     return template;
 }
+
+/**
+ * Add line numbers at the beginning of each line.
+ *
+ * @param strings Strings
+ * @returns {string} Result
+ */
+export const multiline = (strings) => {
+    return strings.toString()
+        .split("\n")
+        .filter(element => element && element.trim().length !== 0)
+        .map((element, index) => `${index + 1} ${element}`)
+        .join("\n");
+}
