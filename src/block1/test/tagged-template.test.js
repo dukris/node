@@ -1,4 +1,4 @@
-import {highlightKeywords, localize} from "../src/tagged-template.js";
+import {highlightKeywords, localize, multiline} from "../src/tagged-template.js";
 
 describe("Tagged Templates", () => {
     test("Quasi-Tagged Templates", () => {
@@ -17,6 +17,14 @@ describe("Tagged Templates", () => {
                 + "<span class='highlight'>tagged</span> <span class='highlight'>"
                 + "template</span>s to create custom ${0} literals "
                 + "for ${1} manipulation.");
+    });
+    test("Multiline Tagged Template", () => {
+        const value = multiline`  
+function add(a, b) {  
+return a + b;  
+}  
+`;
+        expect(value).toBe("1 function add(a, b) {  \n2 return a + b;  \n3 }  ");
     });
 });
 
