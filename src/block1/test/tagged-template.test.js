@@ -14,9 +14,9 @@ describe("Tagged Templates", () => {
         const template = "Learn JavaScript tagged templates to create custom \${0} literals for \${1} manipulation.";
         expect(highlightKeywords(template, keywords))
             .toBe("Learn <span class='highlight'>JavaScript</span> "
-                + "<span class='highlight'>tagged</span> <span class='highlight'>"
-                + "template</span>s to create custom ${0} literals "
-                + "for ${1} manipulation.");
+                + "<span class='highlight'>tagged</span> templates "
+                + "to create custom <span class='highlight'>JavaScript</span> literals "
+                + "for <span class='highlight'>template</span> manipulation.");
     });
     test("Multiline Tagged Template", () => {
         const value = multiline`  

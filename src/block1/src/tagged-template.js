@@ -33,9 +33,15 @@ export const localize = (strings, ...args) => {
  * @returns {string} Result
  */
 export const highlightKeywords = (template, keywords) => {
-    keywords.forEach((word) => {
-        template = template.replace(word, `<span class='highlight'>${word}</span>`);
-        return template;
+    if (typeof template != 'string') {
+        throw new TypeError("Input format is wrong!");
+    }
+    keywords.forEach((word, index) => {
+        template = template.replaceAll(`\${${index}}`, word);
+        template = template.replaceAll(
+            new RegExp("\\b" + word + "\\b", "g"),
+            `<span class='highlight'>${word}</span>`
+        );
     })
     return template;
 }
