@@ -2,8 +2,8 @@
  * Throttle function.
  *
  * @param func Function to be throttled
- * @param interval Time interval
- * @returns {(function(...[*]): (*|undefined))|*} New function that wraps the provided function.
+ * @param interval Time interval (in milliseconds)
+ * @returns {(function(...[*]): (*|undefined))|*} New function that wraps the provided function
  */
 export const throttle = (func, interval) => {
     if (typeof func != 'function' || typeof interval != 'number') {
