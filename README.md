@@ -7,3 +7,4 @@
 - [Task #4 (objects)](https://github.com/hizmailovich/node/tree/master/src/objects)
 - [Task #5 (arrays)](https://github.com/hizmailovich/node/tree/master/src/arrays)
 - [Task #6 (block1)](https://github.com/hizmailovich/node/tree/master/src/block1)
+- [Task #7 (sorting)](https://github.com/hizmailovich/node/tree/master/src/sorting)
