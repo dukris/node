@@ -106,9 +106,9 @@ export const prepareReport = () =>
     16:   asc        | ${measurePerformance(quickSort, asc16)} ms        | ${measurePerformance(bubbleSort, asc16)} ms         | ${measurePerformance(mergeSort, asc16)} ms
           desc       | ${measurePerformance(quickSort, desc16)} ms        | ${measurePerformance(bubbleSort, desc16)} ms         | ${measurePerformance(mergeSort, desc16)} ms
           random     | ${measurePerformance(quickSort, random16)} ms        | ${measurePerformance(bubbleSort, random16)} ms         | ${measurePerformance(mergeSort, random16)} ms
+    100:  random     | ${measurePerformance(quickSort, random100)} ms        | ${measurePerformance(bubbleSort, random100)} ms         | ${measurePerformance(mergeSort, random100)} ms
     `
     );
-
 export let asc2 = [2, 7];
 export let desc2 = [7, 2];
 export let random2 = [7, 2];
@@ -121,3 +121,4 @@ export let random8 = [3, 7, 2, 5, 1, 4, 6, 8];
 export let asc16 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
 export let desc16 = [16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
 export let random16 = [11, 16, 12, 14, 4, 6, 10, 5, 2, 8, 13, 15, 3, 7, 9, 1];
+let random100 = Array.from({length: 100}, () => Math.floor(Math.random() * 100));
