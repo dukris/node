@@ -8,3 +8,4 @@
 - [Task #5 (arrays)](https://github.com/hizmailovich/node/tree/master/src/arrays)
 - [Task #6 (block1)](https://github.com/hizmailovich/node/tree/master/src/block1)
 - [Task #7 (sorting)](https://github.com/hizmailovich/node/tree/master/src/sorting)
+- [Task #8 (event)](https://github.com/hizmailovich/node/tree/master/src/event)
