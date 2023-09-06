@@ -10,3 +10,4 @@
 - [Task #7 (sorting)](https://github.com/hizmailovich/node/tree/master/src/sorting)
 - [Task #8 (event)](https://github.com/hizmailovich/node/tree/master/src/event)
 - [Task #9 (promises)](https://github.com/hizmailovich/node/tree/master/src/promises)
+- [Task #10 (classes)](https://github.com/hizmailovich/node/tree/master/src/classes)
