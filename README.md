@@ -12,3 +12,4 @@
 - [Task #9 (promises)](https://github.com/hizmailovich/node/tree/master/src/promises)
 - [Task #10 (classes)](https://github.com/hizmailovich/node/tree/master/src/classes)
 - [Task #11 (data)](https://github.com/hizmailovich/node/tree/master/src/data)
+- [Task #12 (hash)](https://github.com/hizmailovich/node/tree/master/src/hash)
